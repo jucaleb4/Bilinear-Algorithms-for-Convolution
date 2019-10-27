@@ -25,8 +25,7 @@ def toom_cook_mats_w_pts(r, n, pts):
     assert(len(pts) == r+n-1)
     use_infty = np.infty in pts
     if(use_infty and pts[-1] != np.infty):
-        print("np.infty must be the last node choice")
-        assert(False)
+        raise Exception('np.infty must be the last node choice')
 
     V = np.vander(pts,increasing=True)
     if(use_infty):

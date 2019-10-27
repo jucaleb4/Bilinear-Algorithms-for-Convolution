@@ -15,7 +15,7 @@ n = 4 # input size
 ###############################
 ### Toom-Cook w/ own points ###
 ###############################
-# pts = np.asarray([0,1,,np.infty])
+# pts = np.asarray([0,1,-1,2,np.infty])
 # [A,B,C] = toom.toom_cook_mats_w_pts(r,n,pts)
 
 
