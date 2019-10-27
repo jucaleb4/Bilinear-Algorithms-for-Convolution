@@ -9,12 +9,6 @@ def idx_replace(s,c,i):
     sList[i] = c
     return ''.join(sList)
 
-def idx_replace(s,c,i):
-    sList = list(s)
-    assert(len(sList) >= i+1 >= 0)
-    sList[i] = c
-    return ''.join(sList)
-
 def contract_nD(A,M):
     nD = len(M.shape)
     assert(nD <= 24)
