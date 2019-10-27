@@ -19,7 +19,7 @@ def sym_coeffs(p):
     return coeffs
 
 def winograd_mats_symbol(polys,r,n):
-    polynomial_list = np.asarray([])
+    polynomial_list = np.asarray([], dtype=complex)
     for p in polys:
         p_coeffs = sym_coeffs(p)
         P = wino.Polynomial(p_coeffs)
