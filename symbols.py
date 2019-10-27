@@ -11,7 +11,7 @@ def sym_coeffs(p):
     # extracts all coefficients form 1 -> x**p
     d = sym_deg(p)
     terms = p.to_dict()
-    coeffs = np.zeros(d+1)
+    coeffs = np.zeros(d+1, dtype=complex)
     for i in range(d+1):
         v = tuple([i])
         if v in terms:
