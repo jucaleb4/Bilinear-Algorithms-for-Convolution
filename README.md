@@ -28,9 +28,9 @@ n = 3
 ```
 
 Alternatively, the nodes can be prescribed beforehand. To use
-the infinity node point, simply designate one of the nodes with
-the value `np.infty`. The user must ensure the number of
-points is equal to `n+r-1`.
+the infinity node point, simply designate the last node to
+be `np.infty`. The user must ensure the number of points is 
+equal to `n+r-1`.
 ```
 r = 3
 n = 3
