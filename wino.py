@@ -41,7 +41,7 @@ def get_all_poly_prod_except_i(p_list,i):
 def T_conv(poly,input_size):
     p_coeffs = poly.get_coeffs()
     p_num_coeffs = len(p_coeffs)
-    H = np.zeros((p_num_coeffs + input_size-1, input_size))
+    H = np.zeros((p_num_coeffs + input_size-1, input_size), dtype=complex)
     for col_idx in range(input_size):
         H[col_idx:col_idx + p_num_coeffs, col_idx] = p_coeffs
     return H
@@ -99,7 +99,7 @@ def winograd_conv_mats(polys,r,n):
         # compute e_i = M_iN_i mod M
         T_i = X_eval(M,e_i.get_degree())
         e_i_coeffs = np.dot(T_i,e_i.get_coeffs())
-        e_i_filler = np.zeros(deg_M)
+        e_i_filler = np.zeros(deg_M, dtype=complex)
         e_i_filler[:len(e_i_coeffs)] = e_i_coeffs
         e_i = Polynomial(e_i_coeffs)
 
