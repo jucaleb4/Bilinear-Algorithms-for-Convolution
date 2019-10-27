@@ -4,11 +4,11 @@ A Python module to generate fast bilinear algorithms for different variants of
 convolution.
 
 Requirements
-+ python: version 2.7.6+
-+ numpy: any version
++ python: version 3.7.0
++ numpy: 1.17.3
 
 Optional
-+ sympy: any version
++ sympy: 1.4
 
 ## Bilinear algorithms for linear convolution
 We describe a class of fast convolution algorithms using the matrices `[A,B,C]`.
