@@ -58,13 +58,13 @@ decomp_list = np.asarray([2,4])
 
 ### Winograd convolution algorithm
 We provide a function to generate Winograd's convolution algorithm.
-Unlike previous methods, the user must define their own modulus
-spaces. These polynomials will be described using the
+Unlike previous methods, the user must define their own polynomial
+divisors. These polynomials will be described using the
 `Polynomial` object in the `wino.py` file. It takes in a
 vector of coefficients in increasing order. For example,
 the polynomial `x**2 - 1` is described by the vector of coefficients,
 `[-1,0,1]`. Below is an example for an algorithm described by
-the modulus spaces, `x**2+1,x,x-1,x+1`.
+the divisors, `x**2+1,x,x-1,x+1`.
 
 ```
 polys = np.asarray([
