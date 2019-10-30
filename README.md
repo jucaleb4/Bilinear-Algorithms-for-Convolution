@@ -64,7 +64,7 @@ divisors. These polynomials will be described using the
 vector of coefficients in increasing order. For example,
 the polynomial `x**2 - 1` is described by the vector of coefficients,
 `[-1,0,1]`. Below is an example for an algorithm described by
-the divisors, `x**2+1,x,x-1,x+1`.
+the divisors, `x**2+2,x,x-1,x+1`.
 
 ```
 polys = np.asarray([
