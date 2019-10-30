@@ -5,10 +5,10 @@ convolution.
 
 Requirements
 + python: version 3.7.0
-+ numpy: 1.17.3
++ numpy: version 1.17.3
 
 Optional
-+ sympy: 1.4
++ sympy: version 1.4
 
 ## Bilinear algorithms for linear convolution
 We describe a class of fast convolution algorithms using the matrices `[A,B,C]`.
@@ -109,7 +109,7 @@ modulo space `M=x**n-1` to generate a bilinear algorithm for a
 convolution algorithm with modulus that are the factors of `x**n-1`
 will create a sufficient bilinear algorithm.
 
-Below is an example for generating a 8-cyclic convolution algorithm.
+Below is an example for generating an 8-cyclic convolution algorithm.
 ```
 n = 8
 polys = np.asarray([
