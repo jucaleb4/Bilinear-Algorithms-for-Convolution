@@ -103,10 +103,10 @@ for linear convolution is `[A,B,C]`.
 
 ## Generating circular convolution algorithms
 Consider the cyclic convolution of two inputs of size `n`. It suffices
-to compute a Winograd convolution algorithm defined by the product
-modulo space `M=x**n-1` to generate a bilinear algorithm for a
+to compute a Winograd convolution algorithm defined by the polynomial
+divisors`M=x**n-1` to generate a bilinear algorithm for an
 `n`-cyclic convolution algorithm. Therefore, generating a Winograd's
-convolution algorithm with modulus that are the factors of `x**n-1`
+convolution algorithm with polynomial divisors that are the factors of `x**n-1`
 will create a sufficient bilinear algorithm.
 
 Below is an example for generating an 8-cyclic convolution algorithm.
