@@ -8,17 +8,15 @@ def rs(k):
         (-1)**(i+1) * ceil(i/2) for i in range(k)
     ])
 
-def Q_mat(s,n):
-    assert(s >= n and s%n==0)
-    z = s//n # smaller size
-    w = 2*z-1 # smaller conv size
-    Q = np.zeros((2*s-1, (2*n-1)*w))
+def Q_mat(gamma,eta):
+    n = gamma * eta
+    w = (2*gamma-1)*(2*eta-1)
+    Q = np.zeros((2*n-1, w))
 
     for i in range(2*n-1):
-        row = i*z
-        col = i*w
-        Q[row:row+w, col:col+w] += np.eye(w)
-
+        for j in range(w):
+            if i == j - (eta-1)*floor(j/(2*eta-1)):
+                Q[i,j] = 1 
     return Q
 
 def toom_cook_mats_w_pts(r, n, pts):
@@ -69,41 +67,19 @@ def auto_nested_toom_cook(n):
 
 # list_k is list of decompositions we want
 def nested_toom_cook(list_k):
-    assert(len(list_k ) > 0)
-    n = 1
-    for k in list_k:
-        n*=k
+    if(len(list_k) == 0):
+        return [np.eye(1),np.eye(1),np.eye(1)]
 
-    start_k = list_k[0]
-
-    [A,B,C] = toom_cook_mats(start_k,start_k)
-    AA = A.copy()
-    BB = B.copy()
-    CC = np.kron( np.eye(1) ,
-                    np.dot(Q_mat(n, start_k),
-                        np.kron(C, np.eye(2*n//start_k-1) )
-                    )
-                )
-
-    pre_total = start_k
-    post_total = 2*start_k-1
+    post_k = 1
     for k in list_k[1:]:
-        k = int(k)
-        [A,B,C] = toom_cook_mats(k,k)
+        post_k *= k
 
-        AA = np.kron(A,AA)
-        BB = np.kron(B,BB)
+    k = list_k[0]
+    [A1,B1,C1] = toom_cook_mats(k,k)
+    [A2,B2,C2] = nested_toom_cook(list_k[1:])
+    Q = Q_mat(k,post_k)
 
-        Q = Q_mat(n//pre_total,k)
-        CC = np.dot(CC, np.kron( np.eye(post_total) ,
-                        np.dot(Q, np.kron(C, np.eye(2*n//(pre_total*k)-1) )
-                            )
-                        )
-                    )
-        pre_total *= k
-        post_total *= 2*k-1
-
-    return [AA,BB,CC]
+    return [np.kron(A1,A2), np.kron(B1,B2), np.dot(Q, np.kron(C1,C2)) ]
 
 ###############################
 ### Discrete Fourier Matrix ###
