@@ -110,4 +110,4 @@ def dft_matrices(r, n, cyclic=False):
     F = F_matrix(z)
     Finv = F_matrix_inverse(z)
 
-    return [F[:,:r].copy().T,F[:,:b].copy().T,Finv]
+    return [F[:,:r].copy().T,F[:,:r].copy().T,Finv]
