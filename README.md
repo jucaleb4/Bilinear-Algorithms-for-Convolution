@@ -1,7 +1,7 @@
 # Generating Fast Bilinear Algorithms for different convolution algorithms
 
 A Python module to generate fast bilinear algorithms for different variants of
-convolution.
+convolution based from the paper [Derivation and Analysis of Fast Bilinear Algorithms for Convolution](https://arxiv.org/abs/1910.13367).
 
 Requirements
 + python: version 3.7.0
