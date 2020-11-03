@@ -68,7 +68,7 @@ the divisors, `x**2+2,x,x-1,x+1`.
 
 ```
 polys = np.asarray([
-   wino.Polynomial(np.asarray([1,0,1])),
+   wino.Polynomial(np.asarray([2,0,1])),
    wino.Polynomial(np.asarray([0,1])),
    wino.Polynomial(np.asarray([1,1])),
    wino.Polynomial(np.asarray([-1,1]))
