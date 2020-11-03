@@ -1,7 +1,7 @@
 # Generating Fast Bilinear Algorithms for different convolution algorithms
 
 A Python module to generate fast bilinear algorithms for different variants of
-convolution based from the paper [Derivation and Analysis of Fast Bilinear Algorithms for Convolution](https://arxiv.org/abs/1910.13367).
+convolution.
 
 Requirements
 + python: version 3.7.0
@@ -120,3 +120,8 @@ polys = np.asarray([
 ])
 [A,B,C] = wino.winograd_conv_mats(polys,n,n)
 ```
+
+## Acknowledging Usage
+This code is freely available for everyone to use. If you would like to acknowledge the usage of this code, please cite the following paper:
+
+Ju, Caleb, and Edgar Solomonik. "Derivation and Analysis of Fast Bilinear Algorithms for Convolution." SIAM Review 62.4 (2020): 743-777.
